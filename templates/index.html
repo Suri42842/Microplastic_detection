@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Microplastic Detection</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+<div class="container">
+    <h1>Microplastic Detection System</h1>
+
+    <form method="POST" enctype="multipart/form-data">
+        <input type="file" name="image" required>
+        <button type="submit">Detect</button>
+    </form>
+
+    {% if count is defined %}
+        <h2>Detected Microplastics: {{ count }}</h2>
+
+        <div class="images">
+            <div>
+                <h3>Uploaded Image</h3>
+                <img src="/{{ uploaded_image }}" width="400">
+            </div>
+
+            <div>
+                <h3>Detection Result</h3>
+                <img src="/{{ result_image }}" width="400">
+            </div>
+        </div>
+    {% endif %}
+</div>
+
+</body>
+</html>

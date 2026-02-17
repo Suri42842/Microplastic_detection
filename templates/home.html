@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Microplastic Detection AI</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+
+    <header>
+        <h1>Microplastic Analysis & Detection</h1>
+        <p>AI-Powered Morphology Classification</p>
+    </header>
+
+    <main>
+        <section class="upload-section">
+            <form method="post" enctype="multipart/form-data" id="uploadForm">
+                <div class="file-input-wrapper">
+                    <label for="file">Choose Microscope Image</label>
+                    <input type="file" name="file" id="file" required accept="image/*">
+                </div>
+                <div id="preview-container">
+                    <img id="image-preview" src="#" alt="Image Preview" style="display:none;">
+                </div>
+                <input type="submit" value="Analyze Image" class="btn-submit" id="submitBtn">
+            </form>
+            
+            <div id="loading" style="display:none;">
+                <div class="spinner"></div>
+                <p>Analyzing morphology...</p>
+            </div>
+        </section>
+
+        {% if error_msg %}
+        <div class="error-box">
+            <h3>⚠️ Detection Error</h3>
+            <p>{{ error_msg }}</p>
+        </div>
+        {% endif %}
+
+        {% if analysis_report %}
+        <section class="results-section">
+            
+            <div class="report-card">
+                <h2>1. Scientific Analysis Report</h2>
+                <div class="report-text">
+                    {{ analysis_report }}
+                </div>
+            </div>
+
+            {% if processed_img %}
+            <div class="visual-results">
+                <h2>2. Visual Detection</h2>
+                <div class="image-grid">
+                    <div class="image-card">
+                        <h3>Original Image</h3>
+                        <img src="{{ original_img }}" alt="Original">
+                    </div>
+                    <div class="image-card">
+                        <h3>AI Detected</h3>
+                        <img src="{{ processed_img }}" alt="AI Detection">
+                        <div class="tags">
+                            <strong>Found:</strong> 
+                            {% for item in item_list %}
+                                <span class="tag">{{ item }}</span>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endif %}
+            
+        </section>
+        {% endif %}
+
+    </main>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>

@@ -6,7 +6,7 @@ import PIL.Image
 app = Flask(__name__)
 
 # --- CONFIGURATION ---
-API_KEY = 'x'
+API_KEY = 'AIzaSyCDFscjtk9gWA2PFLQ5LsN2sRA5xTKbySs' 
 genai.configure(api_key=API_KEY)
 
 # UPDATED: Using the model from your list

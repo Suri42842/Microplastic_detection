@@ -1,7 +1,9 @@
-pip install opencv-python numpy matplotlib
-pip install flask opencv-python numpy
-pip install google-generativeai flask
-pip install --upgrade google-generativeai
+flask
+opencv-python
+numpy
+matplotlib
+pillow
+google-generativeai
 
 AIzaSyDudncfmUKO8I2IYVm8MhbSURYACtIOwB7AM
 

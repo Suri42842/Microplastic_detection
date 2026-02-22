@@ -7,7 +7,7 @@ from PIL import Image, ImageDraw, ImageFont
 app = Flask(__name__)
 
 # --- CONFIGURATION ---
-API_KEY = 'x'  # <--- Make sure your key is here
+API_KEY = 'AIzaSyCDFscjtk9gWA2PFLQ5LsN2sRA5xTKbySs'   # <--- Make sure your key is here
 genai.configure(api_key=API_KEY)
 
 MODEL_NAME = 'gemini-flash-latest'
